@@ -67,6 +67,7 @@ def wait_time(json_data):
     minute = int(set_time[1])
     #总共剩下多少秒
     diff_seconds = (hour - now.hour) * 3600 + (minute - now.minute) * 60
+    print(diff_seconds)
     if diff_seconds > 0:
         time.sleep(diff_seconds)
         use_browse = json_data['use_browse']
@@ -75,7 +76,7 @@ def wait_time(json_data):
             chrome(url, json_data)
         elif use_browse == "edge":
             edge(url, json_data)
-    elif -900 < diff_seconds < 0:
+    elif -900 <= diff_seconds <= 0:
         use_browse = json_data['use_browse']
         # 使用的浏览器
         if use_browse == "chrome":
