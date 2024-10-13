@@ -68,7 +68,7 @@ def wait_time(json_data):
     seconds = int(set_time[2])
     #总共剩下多少秒
     diff_seconds = (hour - now.hour) * 3600 + (minute - now.minute) * 60 + (seconds - now.second)
-    print(diff_seconds)
+    #print(diff_seconds)
     if diff_seconds > 0:
         time.sleep(diff_seconds)
         use_browse = json_data['use_browse']
