@@ -65,9 +65,10 @@ def wait_time(json_data):
     now = datetime.datetime.now()
     hour = int(set_time[0])
     minute = int(set_time[1])
-
+    seconds = int(set_time[2])
     #总共剩下多少秒
-    diff_seconds = (hour - now.hour) * 3600 + (minute - now.minute) * 60
+    diff_seconds = (hour - now.hour) * 3600 + (minute - now.minute) * 60 + (seconds - now.second)
+    print(diff_seconds)
     if diff_seconds > 0:
         time.sleep(diff_seconds)
         use_browse = json_data['use_browse']
@@ -90,7 +91,7 @@ if __name__ == '__main__':
     if not os.path.exists(json_file_path):
         with open(json_file_path,'w') as  f:
             json.dump({"today_opentv": "yes",
-                       "opentv_time": "20:45",
+                       "opentv_time": "20:45:00",
                        "week_opentv": "no",
                        "run_now": "no",
                        "use_browse": "chrome",
